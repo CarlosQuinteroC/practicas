@@ -10,6 +10,7 @@ npm run tsc -- --init
 - Configurar outDir ./build
 - configurar baseUrl ./src
 */
+const fraganceController_1 = __importDefault(require("./controllers/fraganceController"));
 const express_1 = __importDefault(require("express"));
 const MongoService_1 = __importDefault(require("./services/MongoService"));
 const app = (0, express_1.default)();
@@ -19,6 +20,7 @@ app.use(express_1.default.urlencoded({ extended: false }));
 app.get('/', (request, response) => {
     response.send('PAge Upp');
 });
+app.use('/fragance', fraganceController_1.default);
 //Start database
 MongoService_1.default.connect();
 exports.default = app;

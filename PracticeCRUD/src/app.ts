@@ -5,6 +5,7 @@ npm run tsc -- --init
 - Configurar outDir ./build
 - configurar baseUrl ./src
 */
+import fraganceController from './controllers/fraganceController';
 import express from 'express';
 import MongoService from './services/MongoService';
 
@@ -18,6 +19,7 @@ app.get('/', (request, response) => {
     response.send('PAge Upp');
 });
 
+app.use('/fragance', fraganceController)
 //Start database
 MongoService.connect();
 
